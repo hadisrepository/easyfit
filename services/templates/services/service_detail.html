@@ -1,0 +1,33 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+service detail
+{% endblock page_title %}
+
+
+{% block content %}
+
+
+  <h1>{{services.title}}</h1>
+   <p> {{services.text}} </p>
+   <p> £{{services.price}} </p>
+   <p> {{services.id}} </p>
+  <div class="product-action d-flex align-items-sm-center align-content-center mb--30">
+      <form action="{% url 'cart_add' services.id %}" method="POST">
+          {% csrf_token %}
+          {{add_to_cart_form}}
+          <button type="submit">Add to cart</button>
+
+      </form>
+<!--                                    <div class="quantity-wrapper d-flex justify-content-start">-->
+<!--                                        <div class="quantity">-->
+<!--                                            <input type="number" class="quantity-input" name="qty" id="qty" value="1" min="1">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--&lt;!&ndash;                                    <button type="button" class="btn btn-small btn-bg-red btn-color-white btn-hover-2" onclick="window.location.href='cart.html'">&ndash;&gt;-->
+<!--&lt;!&ndash;                                        Add to basket&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </button>&ndash;&gt;-->
+   </div>
+
+
+{% endblock content %}

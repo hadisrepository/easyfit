@@ -1,0 +1,49 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+All services
+{% endblock page_title %}
+
+{% block content %}
+
+   <div class="container">
+            <div class="gap"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="center gap fade-down section-heading no-display animated fadeInDown appear">
+                            <h2 class="main-title">Stuff We Do</h2>
+                            <hr>
+                            <p>Of an or game gate west face shed. ﻿no great but music too old found arose.</p>
+                        </div>
+                    </div>
+                </div>
+  <div class="row">
+                    {% for service in services %}
+
+<div class="card">
+                    <div class="col-md-4 col-sm-6  ">
+                        <div class="service-block">
+                            <div class="pull-left bounce-in no-display animated bounceIn appear">
+                                <i class="fa fa-camera fa fa-md"></i>
+                            </div>
+                            <div class="media-body fade-up no-display animated fadeInUp appear">
+                                <h3 class="media-heading">{{service.title}}</h3>
+<!--                                <p>{{service.text}}</p>-->
+                                <p>£{{service.price}}</p>
+                                <br>
+                                 <a href= "{{service.get_absolute_url}}"class="btn btn-sm btn-success">Read More</a>
+                            </div>
+                        </div>
+                    </div><!--/.col-md-4-->
+</div>
+                    {% endfor %}
+                    <a href= "{% url 'services_create' %}" class="btn btn-sm btn-success"> Add New Service</a>
+
+                </div><!--/.row-->
+
+
+   </div>
+
+
+
+{% endblock content%}
